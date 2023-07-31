@@ -1,0 +1,13 @@
+<form class="form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
+  <div class="search-field">
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput ngModel name="city-input" data-cy="city-input" placeholder="Enter city name" />
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-fab color="primary" type="submit" data-cy="submit-btn">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

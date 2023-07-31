@@ -1,0 +1,33 @@
+<div class="table-view">
+    <p *ngIf="viewState == ViewState.EmptyTable"> No cities found.</p>
+  <p *ngIf="viewState == ViewState.Initial"> Please enter the city you are looking for and click search.</p>
+  <p *ngIf="viewState == ViewState.Error"> An unexpected error occured while fetching the results. Please try again later.</p>
+  <div class="table"  [hidden]="viewState != ViewState.ShowTable" >
+    <table mat-table [dataSource]="cityTable" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by Index"> No. </th>
+          <td mat-cell *matCellDef="let i = index" id="index-col">
+            {{this.paginator.pageIndex == 0 ? i + 1 : 1 + i + this.paginator.pageIndex * this.paginator.pageSize}}
+            </td>
+        </ng-container>
+      
+        <!-- City Column -->
+        <ng-container matColumnDef="cityName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by City"> City </th>
+          <td mat-cell *matCellDef="let element" id="city-col"> {{element.cityName}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="cityColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: cityColumns;"></tr>
+      </table>
+      
+      <mat-paginator [pageSizeOptions]="[5]"
+      showFirstLastButtons
+      aria-label="Select page of cities">
+      </mat-paginator>
+  </div>
+</div>
+
+
