@@ -1,0 +1,28 @@
+@import "../../../assets/_variables";
+
+.table-view {
+  margin: 24px auto;
+  text-align: center;
+
+  p {
+    background-color: $basic;
+    color: white;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 5px;
+  }
+  .table{
+    max-width: 500px;
+    margin: 0 auto;
+    table {
+        #index-col {
+          width: 80px;
+        }
+        background-color: $accent;
+        th {
+          background-color: $basic;
+        }
+      }
+  }
+  
+}

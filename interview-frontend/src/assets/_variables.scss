@@ -1,0 +1,13 @@
+@import "../../node_modules/@angular/material/theming";
+
+// Copy colour palettes individually
+$app-primary: mat-palette($mat-purple,600);
+$app-accent: mat-palette($mat-green);
+$app-accent-light: mat-palette($mat-green,100);
+$app-basic: mat-palette($mat-grey, 800);
+
+// Create variables to use in project
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$accent-light: mat-color($app-accent-light);
+$basic:  mat-color($app-basic);
