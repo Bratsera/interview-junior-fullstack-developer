@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query} from '@nestjs/common';
 import { AppService } from './app.service';
+import { City } from './models/City';
 
-@Controller()
+@Controller('cities')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getCities(@Query('cities') searchString :string): City[] {
+    return this.appService.getCities(searchString);
   }
 }
