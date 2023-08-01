@@ -11,18 +11,17 @@
     margin: 0 auto;
     padding: 5px;
   }
-  .table{
+  .table {
     max-width: 500px;
     margin: 0 auto;
     table {
-        #index-col {
-          width: 80px;
-        }
-        background-color: $accent;
-        th {
-          background-color: $basic;
-        }
+      background-color: $accent;
+      #index-col {
+        width: 80px;
       }
+      th {
+        background-color: $basic;
+      }
+    }
   }
-  
 }

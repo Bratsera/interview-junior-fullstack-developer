@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { CityService } from './services/city.service';
-import { City } from './models/City';
-
-
 
 @Component({
   selector: 'app-root',

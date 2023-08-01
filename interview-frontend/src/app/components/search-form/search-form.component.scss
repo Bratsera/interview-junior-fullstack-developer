@@ -1,32 +1,29 @@
-.search-field{
-    margin: 0 auto;
-    min-width: fit-content;
-    max-width: 500px;
-    height: 100px;
-display: flex;
-flex-direction: row;
-align-items: stretch;
-justify-content: center;
+.search-field {
+  margin: 0 auto;
+  min-width: fit-content;
+  max-width: 500px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
 
-
-mat-form-field{
+  mat-form-field {
     width: 420px;
     height: 100%;
-   mat-input{
-    height: 100%;
-  
-   }
-}
-.button-container{
+    mat-input {
+      height: 100%;
+    }
+  }
+  .button-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 100%;
     margin-left: 10px;
-    button{
-        margin-bottom: 15px;
+    button {
+      margin-bottom: 15px;
     }
-    
-}
+  }
 }

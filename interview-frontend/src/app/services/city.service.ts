@@ -6,26 +6,20 @@ import { Observable, Subject } from 'rxjs';
 const backendUrl = 'http://localhost:3000/cities';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CityService {
   searchStringSub: Subject<string> = new Subject();
-  curString:string = "";
-  
+  curString: string = '';
+
   constructor(private http: HttpClient) {
-    this.searchStringSub.subscribe(newstring => {
-      this.curString = newstring ?  newstring : "";
-    })
+    this.searchStringSub.subscribe((newstring) => {
+      this.curString = newstring ? newstring : '';
+    });
   }
 
-  getCities(): Observable<City[]>{
-
-    let queryParams = new HttpParams()
-    .append("cities", this.curString);
-    return this.http.get<City[]>(
-      backendUrl, 
-      { params: queryParams}
-    )
+  getCities(): Observable<City[]> {
+    let queryParams = new HttpParams().append('cities', this.curString);
+    return this.http.get<City[]>(backendUrl, { params: queryParams });
   }
- 
 }

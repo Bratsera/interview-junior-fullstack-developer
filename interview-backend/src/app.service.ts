@@ -4,7 +4,6 @@ import * as cities from './cities.json';
 
 @Injectable()
 export class AppService {
-
   format(string: string) {
     return string
       .toUpperCase()
@@ -19,8 +18,7 @@ export class AppService {
       this.format(city.cityName).startsWith(this.format(searchString)),
     );
 
-    if (filteredCities.length > 0) 
-      return filteredCities;
+    if (filteredCities.length > 0) return filteredCities;
     else
       throw new HttpException(
         'No cities matching the given name.',

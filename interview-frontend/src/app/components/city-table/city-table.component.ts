@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import {MatSort, Sort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { City } from '../../models/City';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CityService } from 'src/app/services/city.service';
@@ -10,49 +10,47 @@ enum ViewState {
   Initial,
   ShowTable,
   EmptyTable,
-  Error
+  Error,
 }
-
 
 @Component({
   selector: 'app-city-table',
   templateUrl: './city-table.component.html',
-  styleUrls: ['./city-table.component.scss']
+  styleUrls: ['./city-table.component.scss'],
 })
-export class CityTableComponent implements AfterViewInit{
-  constructor(private _liveAnnouncer: LiveAnnouncer,
-    private cityService: CityService){}
-  
+export class CityTableComponent implements AfterViewInit {
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   cityColumns: string[] = ['index', 'cityName'];
-  cityTable!: MatTableDataSource<any>
-  @ViewChild(MatSort)
-  sort!: MatSort;
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  cityTable!: MatTableDataSource<any>;
   ViewState = ViewState;
-  viewState:ViewState = ViewState.Initial;
+  viewState: ViewState = ViewState.Initial;
 
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private cityService: CityService
+  ) {}
 
-  loadCities(){
-    this.cityService.searchStringSub.subscribe( () => {
+  ngAfterViewInit(): void {
+    this.loadCities();
+  }
+
+  loadCities() {
+    this.cityService.searchStringSub.subscribe(() => {
       this.cityService.getCities().subscribe({
         next: (res: City[]) => {
-          if(!this.cityTable){}
-          this.cityTable= new MatTableDataSource(res);
+          this.cityTable = new MatTableDataSource(res);
           this.cityTable.paginator = this.paginator;
           this.cityTable.sort = this.sort;
           this.viewState = ViewState.ShowTable;
         },
         error: (error) => {
-          if (error.status == '404')
-            this.viewState = ViewState.EmptyTable;
-  
-          else
-            this.viewState = ViewState.Error;
-        }
+          if (error.status == '404') this.viewState = ViewState.EmptyTable;
+          else this.viewState = ViewState.Error;
+        },
       });
-    })
-   
+    });
   }
 
   /** Announce the change in sort state for assistive technology. */
@@ -63,9 +61,4 @@ export class CityTableComponent implements AfterViewInit{
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
-
- ngAfterViewInit(): void {
-    this.loadCities();
- }
-
 }

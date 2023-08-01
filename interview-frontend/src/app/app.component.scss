@@ -1,18 +1,17 @@
-
 @import "../assets/_variables";
 
-.header{
+.header {
   text-align: center;
   background-color: $primary;
   height: 60px;
   padding-top: 20px;
-  h1{
+  h1 {
     font-size: 30px;
     font-weight: 600;
     color: white;
+  }
 }
-}
-.app-container{
+.app-container {
   width: 80%;
   margin: 20px auto;
   text-align: center;
