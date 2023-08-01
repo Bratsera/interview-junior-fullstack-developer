@@ -1,36 +1,24 @@
 # Interview for Junior Full-Stack developer
 
-Dear applicant,
+Dear reader,
 
-thank you again for applying for the Junior Full-Stack developer position at Erento. With the following task we would like to verify your coding skills. Expected timeline for this assignment is to be finished within a week.
+this repo is a test project using 
+- an Angular 16 frontend application with a form component to search for cities and a table component for displaying the results 
+- a NestJS 10 backend application for returning the list of the cities which is matching the entry submitted from the frontend.
 
-Below you can find 2 folders. Both are just simple initial applications generated from respective CLI tools. The [`interview-frontend`](./interview-frontend) is an Angular 16 frontend application and the [`interview-backend`](./interview-backend) is a NestJS 10 backend application.
+## What are additional features?
+1. The backend matches and recognizes umlauts and written out umlauts: 'Muenchen' is recognized as 'München' and vice versa
+2. Implemented E2E testing with Cypress in addition to Jasmin/Karma component testing
+3. The frontend table for displaying the cities has sorting functionality
+4. Information is displayed if no results are found or an error occurred
+5. Used Angular Material for styling and theming
 
-As you can already spot, both are javascript applications, which is by far the most used language at Erento.
+## How to test?
+Make sure you have Nodejs and Angular installed
+1. In the Terminal, go to the 'interview-backend' folder and run the command npm i 
+2. Run the command npm run start
+3. In the Terminal, go to the 'interview-frontend' folder and run the command npm i
+4. Run the command ng serve
+5. Visit http://localhost:4200/
+6. You should now be able to test the app and search for cities
 
-## What should you do?
-
-1. On the frontend replace the existing content with a form where you can search for a city and list the results in some list formatted below.
-2. On the backend prepare an endpoint to return the list of the cities which is matching the entry submitted from the frontend. Ideally, you will return up to 5 entries per page.
-
-    In the root of this repository there is [cities.json](./cities.json) file - this should mock your database.
-
-## Tips
-
-- You should make sure your code is functional.
-- You should also handle possible edge cases.
-- You should be happy with your solution.
-- Do you know how to test? This could be your chance to learn!
-- Any progress would be good to track over git commits.
-
-## Are you done?
-
-You can give us the accomplished assignment in 2 ways of your choice:
-1. Create a fork of our repository and send us a link to your Github repository when you are finished, or
-2. Remove `node_modules` folder in both applications pack it into an archive and send it over an email.
-
-## Further help
-
-To get more help on:
-- Angular check out the [Angular docs](https://angular.io/docs) page
-- NestJS check out the [NestJS docs](https://docs.nestjs.com) page
